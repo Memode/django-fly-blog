@@ -68,8 +68,8 @@ class Post(models.Model):
     def tags_list(self):
         return [tag.strip() for tag in self.tags.split(',')]
 
-    #def get_absolute_url(self):
-    #    return '%s/%s.html' % (settings.DOMAIN, self.alias)
+    def get_absolute_url(self):
+        return '%s/%s.html' % (settings.DOMAIN, self.alias)
 
     def next_post(self):
         # 下一篇
@@ -156,4 +156,4 @@ class Widget(models.Model):
 
     class Meta:
         ordering = ['rank', '-create_time']
-        verbose_name_plural = verbose_name = u"侧栏组件"
+        verbose_name_plural = verbose_name = u"侧栏"

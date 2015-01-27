@@ -2,16 +2,12 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>{% block title %}{% endblock %}the5fire的技术博客</title>
+        <title>{% block title %}{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="{% block desc %}关于编程（java,python,js等）、设计模式、系统（linux）、开源、学习心得、工作经验–人生苦短，我用python{% endblock %}">
-        <meta name="keywords" content="{% block keywords %}python,linux,vim,web开发,工作经验,项目实战,教程{% endblock %}">
-        <meta name="author" content="the5fire">
-        <meta name="baidu-site-verification" content="L1tGNksWV2rt8zho" />
-        <meta name="google-site-verification" content="DBmuxv3lJezFBdzrzoueLXVbY6gJ6cdbR1mroGVRiNQ" />
-        <link rel="pingback" href="/xmlrpc/" />
+        <meta name="description" content="{% block desc %}{{desc}}{% endblock %}">
+        <meta name="keywords" content="{% block keywords %}{{keywords}}{% endblock %}">
+        <meta name="author" content="{{author}}">
         <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
-
         <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="/static/bootstrap/css/docs.css" rel="stylesheet">
         <link href="/static/blog/css/style.css" rel="stylesheet">
@@ -42,7 +38,7 @@
                                 {% endfor %}
                         </ul>
                     </div>
-                    <a class="brand" href="/">the5fire</a>
+                    <a class="brand" href="/">Python</a>
                 </div>
             </div>
         </div>
@@ -51,8 +47,8 @@
             <header class="" id="overview">
             <div class="row">
                 <div class="span9">
-                    <h1><a href="/">the5fire的技术博客</a></h1>
-                    <div id="blogdesc">关注python、vim、linux、web开发和互联网--life is short, we need python.</div>
+                    <h1><a href="/">{{sitename}}</a></h1>
+                    <div id="blogdesc">{{blogdesc}}</div>
                 </div>
 
                 <div class="span3">
@@ -60,14 +56,13 @@
                         <form class="form-search nav-quick-search" autocomplete="off" method="get" action="/">
                      <input type="text" class="input-medium search-query" value="" name="s" id="s">
                     <i class="input-icon icon-search"></i>
-                      <input type="submit" class="submit" value="">
                         </form>
                     </div>
                 </div>
             </div>
             </header>
-
-            <div class="subnav under_line">
+        </br>
+            <div class="subnav ">
                 <ul class="nav nav-pills">
                     {% for category in categories %}
                     {% if category.is_nav %}
@@ -88,7 +83,6 @@
             </div>
 
             <div class="">
-                其他分类：
                 <ul class="nav nav-pills">
                     {% for category in categories %}
                     {% if not category.is_nav %}
