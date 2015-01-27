@@ -2,7 +2,7 @@
 from datetime import datetime
 from django.db import models
 from django.contrib.auth.models import User
-
+from flyblog import settings
 STATUS = {
     0: u'正常',
     1: u'草稿',
@@ -68,8 +68,8 @@ class Post(models.Model):
     def tags_list(self):
         return [tag.strip() for tag in self.tags.split(',')]
 
-    def get_absolute_url(self):
-        return '%s/%s.html' % (settings.DOMAIN, self.alias)
+    #def get_absolute_url(self):
+    #    return '%s/%s.html' % (settings.DOMAIN, self.alias)
 
     def next_post(self):
         # 下一篇
