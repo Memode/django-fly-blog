@@ -20,7 +20,7 @@ ALLOWED_HOSTS = ['localhost']
 #一些公共的参数
 
 DOMAIN = 'http://localhost:8000'
-PAGE_NUM = 10
+PAGE_NUM = 1
 RECENTLY_NUM = 15
 HOT_NUM = 15
 ONE_DAY = 24*60*60

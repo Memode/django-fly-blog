@@ -10,7 +10,10 @@
         <div class="article">
             <h2 class='under_line'>
                 <a href="{{ post.get_absolute_url }}" rel="bookmark" title="详细阅读 {{ post.title }}">
-                    {% autoescape off %}{{ post.title }}{% endautoescape %}
+                {% if post.is_top %}
+                [置顶]
+                {% endif %}
+                {% autoescape off %}{{ post.title }}{% endautoescape %}
                 </a>
             </h2>
             <div class="info">
