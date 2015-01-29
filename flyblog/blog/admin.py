@@ -13,6 +13,8 @@ from pagedown.widgets import AdminPagedownWidget
 
 class PostForm(forms.ModelForm):
     content = forms.CharField(widget=AdminPagedownWidget())
+    summary = forms.CharField(
+        widget=forms.Textarea(attrs={'style': 'width:600px;'}))
 
     class Meta:
         model = Post
@@ -20,8 +22,8 @@ class PostForm(forms.ModelForm):
 
 class PostAdmin(admin.ModelAdmin):
     search_fields = ('title', 'alias')
-    fields = ('content', 'summary', 'title', 'alias', 'tags', 'status',
-              'category', 'is_top', 'is_old', 'pub_time')
+    fields = ('title', 'alias', 'is_top', 'is_old', 'pub_time',  'tags', 'status',
+              'category', 'summary', 'content')
     list_display = ('preview', 'title', 'category', 'is_top', 'pub_time')
     list_display_links = ('title', )
 
@@ -55,8 +57,30 @@ class PostAdmin(admin.ModelAdmin):
         obj.save()
 
 
+class CategoryAdmin(admin.ModelAdmin):
+    search_fields = ('name', 'alias')
+    list_display = ('name', 'rank', 'is_nav', 'status', 'create_time')
+
+
+class PageAdmin(admin.ModelAdmin):
+    search_fields = ('name', 'alias')
+    fields = ('title', 'alias', 'link', 'content', 'is_html', 'status', 'rank')
+    list_display = ('title', 'link', 'rank', 'status', 'is_html')
+
+    def save_model(self, request, obj, form, change):
+        obj.author = request.user
+        obj.content_html = obj.content
+        obj.save()
+
+
+class WidgetAdmin(admin.ModelAdmin):
+    search_fields = ('name', 'alias')
+    fields = ('title', 'content', 'rank', 'hide')
+    list_display = ('title', 'rank', 'hide')
+
+
 # Register your models here.
 admin.site.register(Post, PostAdmin)
-admin.site.register(Category)
-admin.site.register(Page)
-admin.site.register(Widget)
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(Page, PageAdmin)
+admin.site.register(Widget, WidgetAdmin)

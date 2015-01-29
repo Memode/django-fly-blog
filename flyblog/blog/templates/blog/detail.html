@@ -58,12 +58,10 @@
                 </ul>
             </div>
             <div class="span4">
-                <b>别人正在读</b>
-                <ul>
-                    {% for ip, post in lru_views %}
-                        {% if ip != cur_user_ip %}
-                        <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
-                        {% endif %}
+                <b>所有标签</b>
+                <ul style="width:350px;overflow:hidden;">
+                    {% for tag in tags %}
+                    <a href="/tag/{{ tag }}">{{ tag }}</a>
                     {% endfor %}
                 </ul>
             </div>

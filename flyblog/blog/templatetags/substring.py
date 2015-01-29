@@ -1,18 +1,9 @@
-#coding:utf-8
+# coding:utf-8
 
 from django import template
 
 register = template.Library()
-
-
-@register.filter(name='substring')
-def substring(value, length):
-    if not value:
-        return u'无摘要'
-
-    if len(value) > length:
-        return '%s...' % value[:length]
-    return value[:length]
+# pagedivider
 
 
 @register.filter(name='sub')
