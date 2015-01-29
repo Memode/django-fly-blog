@@ -6,7 +6,16 @@ from models import Category
 from models import Page
 from models import Widget
 import hashlib
+from django import forms
+from pagedown.widgets import AdminPagedownWidget
 # 文章管理
+
+
+class PostForm(forms.ModelForm):
+    content = forms.CharField(widget=AdminPagedownWidget())
+
+    class Meta:
+        model = Post
 
 
 class PostAdmin(admin.ModelAdmin):
@@ -19,6 +28,7 @@ class PostAdmin(admin.ModelAdmin):
     ordering = ('-pub_time', )
     list_per_page = 15
     save_on_top = True
+    form = PostForm
     # 显示字段
 
     def preview(self, obj):

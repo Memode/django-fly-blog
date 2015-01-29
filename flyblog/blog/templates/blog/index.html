@@ -1,5 +1,6 @@
 {% extends "blog/base.html" %}
 {% load substring %}
+{% load markdown_deux_tags %}
 {% if title %}
     {% block title %}{{ title }}{% endblock %}
 {% endif %}
@@ -35,8 +36,8 @@
             <div class="entry_post">
                 <span>
                     <p>
-                    {% autoescape on %}
-                    {{ post.summary|truncatewords:140 }}
+                    {% autoescape off %}
+                    {{ post.summary |markdown}}
                     {% endautoescape %}
                     </p>
                 </span>

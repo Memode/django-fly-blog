@@ -1,5 +1,5 @@
 {% extends "blog/base.html" %}
-
+{% load markdown_deux_tags %}
 {% block title %}{{ post.title }} | {% endblock %}
 {% block desc %}{{ post.summary|truncatewords:140 }}{%  endblock %}
 {% block keywords %}{{ post.tags }}{% endblock %}
@@ -40,8 +40,8 @@
     <div class="clear"></div>
 
     <div class="content">
-        {% autoescape off %}
-        {{ post.content_html }}
+        {% autoescape on %}
+        {{ post.content_html |markdown}}
         {% endautoescape %}
     </div>
 

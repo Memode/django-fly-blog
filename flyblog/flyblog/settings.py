@@ -17,13 +17,13 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['localhost']
 
-#一些公共的参数
+# 一些公共的参数
 
 DOMAIN = 'http://localhost:8000'
 PAGE_NUM = 1
 RECENTLY_NUM = 15
 HOT_NUM = 15
-ONE_DAY = 24*60*60
+ONE_DAY = 24 * 60 * 60
 FIF_MIN = 15 * 60
 FIVE_MIN = 5 * 60
 
@@ -38,6 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'pagedown',
+    'markdown_deux',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -92,7 +94,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
-
+STATIC_ROOT = '/static/'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
@@ -108,13 +110,13 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 )
-#模板调用路径
+# 模板调用路径
 TEMPLATE_DIRS = (
     os.path.join(os.path.dirname(__file__), 'templates'),
     #os.path.join(os.path.dirname(__file__), 'blog/templates'),
 )
 
-#Django-suit后台配置公共参数
+# Django-suit后台配置公共参数
 SUIT_CONFIG = {
     # header
     'ADMIN_NAME': 'flyblog',
