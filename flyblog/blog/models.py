@@ -47,7 +47,7 @@ class Post(models.Model):
     alias = models.CharField(max_length=100, db_index=True, blank=True, null=True, verbose_name=u'英文标题', help_text=u'做伪静态url用')
     is_top = models.BooleanField(default=False, verbose_name=u'置顶')
 
-    summary = models.TextField(verbose_name=u'摘要')
+    summary = models.TextField(verbose_name=u'摘要',blank=True)
     content = models.TextField(verbose_name=u'文章正文rst格式')
 
     content_html = models.TextField(verbose_name=u'文章正文html')
@@ -88,7 +88,7 @@ class Post(models.Model):
     def get_hots_posts(cls, num):
         return cls.objects.values('title', 'alias')\
             .filter(status=0).order_by('-view_times')[:num]
-
+    #返回相关的文章
     def related_posts(self):
         related_posts = None
         try:

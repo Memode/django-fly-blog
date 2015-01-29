@@ -6,4 +6,5 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^$',views.IndexView.as_view(), name='home'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^(?P<slug>[\w|\-|\d|\W]+?).html$', views.PostDetailView.as_view(),name='detail'),
 )

@@ -15,7 +15,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 #一些公共的参数
 
@@ -111,7 +111,7 @@ TEMPLATE_LOADERS = (
 #模板调用路径
 TEMPLATE_DIRS = (
     os.path.join(os.path.dirname(__file__), 'templates'),
-    os.path.join(os.path.dirname(__file__), 'blog/templates'),
+    #os.path.join(os.path.dirname(__file__), 'blog/templates'),
 )
 
 #Django-suit后台配置公共参数
