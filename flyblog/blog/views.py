@@ -27,7 +27,7 @@ class BaseMixin(object):
             context['desc'] = 'python,c,c++,java,linux,生活感悟，工作笔记，心情驿站'
             context['keywords'] = 'python,c,c++,java,linux,生活感悟，工作笔记，心情驿站'
             context['author'] = 'younfor'
-            context['sitename'] = 'Younfor\'s blog'
+            context['sitename'] = 'Younfor\'s BLOG'
             context['blogdesc'] = '悄悄是别离的笙箫，所谓爱情，所谓人生，所谓。'
         except Exception as e:
             print e

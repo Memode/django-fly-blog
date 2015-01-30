@@ -15,11 +15,10 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost', '.sinaapp.com']
 
 # 一些公共的参数
 
-DOMAIN = 'http://localhost:8000'
 PAGE_NUM = 1
 RECENTLY_NUM = 15
 HOT_NUM = 15
@@ -62,22 +61,37 @@ WSGI_APPLICATION = 'flyblog.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-
-DATABASES = {
-    'default2': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    },
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'flyblog',
-        'USER': 'root',
-        'PASSWORD': '199288',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+SAE = False
+if not SAE:
+    DOMAIN = '.'
+    DATABASES = {
+        # 'default2': {
+        #    'ENGINE': 'django.db.backends.sqlite3',
+        #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # },
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'flyblog',
+            'USER': 'root',
+            'PASSWORD': '199288',
+            'HOST': '127.0.0.1',
+            'PORT': '3306',
+        }
     }
-}
+else:
+    DOMAIN = '.'
+    import sae.const
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': sae.const.MYSQL_DB,
+            'USER': sae.const.MYSQL_USER,
+            'PASSWORD': sae.const.MYSQL_PASS,
+            'HOST': sae.const.MYSQL_HOST,
+            'PORT': sae.const.MYSQL_PORT,
 
+        }
+    }
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
@@ -94,12 +108,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
-STATIC_ROOT = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
