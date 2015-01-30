@@ -63,7 +63,7 @@ WSGI_APPLICATION = 'flyblog.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 SAE = False
 if not SAE:
-    DOMAIN = '.'
+    DOMAIN = 'localhost'
     DATABASES = {
         # 'default2': {
         #    'ENGINE': 'django.db.backends.sqlite3',
@@ -79,7 +79,7 @@ if not SAE:
         }
     }
 else:
-    DOMAIN = '.'
+    DOMAIN = 'http://pyfor.sinaapp.com'
     import sae.const
     DATABASES = {
         'default': {

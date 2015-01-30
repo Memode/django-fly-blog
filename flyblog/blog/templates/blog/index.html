@@ -1,6 +1,6 @@
 {% extends "blog/base.html" %}
 {% load substring %}
-{% load markdown_deux_tags %}
+{% load my_markup %}
 {% if title %}
     {% block title %}{{ title }}{% endblock %}
 {% endif %}
@@ -37,7 +37,7 @@
                 <span>
                     <p>
                     {% autoescape off %}
-                    {{ post.summary |markdown}}
+                    {{ post.summary |my_markdown}}
                     {% endautoescape %}
                     </p>
                 </span>
