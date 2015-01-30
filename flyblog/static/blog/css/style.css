@@ -14,7 +14,7 @@ body {
 }
 
 .under_line {
-    border-bottom:1px solid #333;
+    border-bottom:1px solid #ccc;
 }
 
 .clear {
@@ -34,7 +34,7 @@ h1 {
 }
 h1 a {
     color:#222;
-    font:18px 微软雅黑,PMingLiU,Verdana,Arial,Helvetica,sans-serif;
+    font:35px 微软雅黑,PMingLiU,Verdana,Arial,Helvetica,sans-serif;
 }
 
 header h1 {
@@ -42,7 +42,7 @@ header h1 {
 }
 
 #blogdesc {
-    font-size:13px;
+    font-size:15px;
     color:#666;
 }
 
@@ -109,7 +109,7 @@ header h1 {
 
 .article h2, .sidebar h3 {
     margin:5px 0;
-    font-size: 16px;
+    font-size: 19px;
     height: 24px;
     padding-left: 10px;
     padding-bottom: 10px;
@@ -133,7 +133,7 @@ header h1 {
 }
 
 .info {
-    font-size: 12px;
+    font-size: 14px;
     color:#757575;
 }
 
@@ -141,7 +141,7 @@ header h1 {
 /* detail css */
 .detail h2 {
     margin:10px 0 0 0;
-    font-size: 16px;
+    font-size: 19px;
     height: 24px;
     padding-bottom: 10px;
 }
@@ -152,7 +152,7 @@ header h1 {
 
 .detail .content {
     padding:20px 0;
-    font-size:15px;
+    font-size:17px;
 }
 
 .detail .content p {
@@ -188,7 +188,7 @@ header h1 {
 
 /*widget 配置*/
 .sidebar .widget h3 {
-    font-size:14px;
+    font-size:17px;
 }
 
 .sidebar ul {

@@ -81,11 +81,11 @@ class Post(models.Model):
 
     def next_post(self):
         # 下一篇
-        return Post.objects.filter(id__gt=self.id, status=0).order_by('id').first()
+        return Post.objects.get(id__gt=self.id, status=0)
 
     def prev_post(self):
         # 前一篇
-        return Post.objects.filter(id__lt=self.id, status=0).first()
+        return Post.objects.get(id__lt=self.id, status=0)
 
     @classmethod
     def get_recently_posts(cls, num):
