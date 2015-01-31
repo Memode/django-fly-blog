@@ -52,7 +52,7 @@ class Post(models.Model):
                              null=True, verbose_name=u'英文标题', help_text=u'做伪静态url用')
     is_top = models.BooleanField(default=False, verbose_name=u'置顶')
 
-    summary = models.TextField(verbose_name=u'摘要', blank=True)
+    summary = models.TextField(verbose_name=u'摘要', null=True,blank=True)
     content = models.TextField(verbose_name=u'文章正文rst格式')
 
     content_html = models.TextField(verbose_name=u'文章正文html')
@@ -89,12 +89,12 @@ class Post(models.Model):
 
     @classmethod
     def get_recently_posts(cls, num):
-        return cls.objects.values('title', 'alias')\
+        return cls.objects.values('title', 'alias','view_times','pub_time')\
             .filter(status=0).order_by('-create_time')[:num]
 
     @classmethod
     def get_hots_posts(cls, num):
-        return cls.objects.values('title', 'alias')\
+        return cls.objects.values('title', 'alias','view_times')\
             .filter(status=0).order_by('-view_times')[:num]
     # 返回相关的文章
 

@@ -1,42 +1,54 @@
 <div class="widget">
     {% for widget in widgets %}
     {% if widget.content == 'recently_post'%}
-    <h3 class="under_line">{{ widget.title }}</h3>
-    <div class="textwidget">
-        <ul>
-        {% with r_posts=recently_posts %}
-        {% if r_posts %}
-        {% for post in r_posts %}
-        <li>
-        <a rel="bookmark" href="/{{ post.alias }}.html" title="详细阅读 {{ post.title }}">{{ post.title }}</a>
-        </li>
-        {% endfor %}
-        {% endif %}
-        {% endwith %}
-        </ul>
-    </div>
+         <div class="panel panel-warning ">
+               <div class="panel-heading">
+                 {{ widget.title }}
+               </div>
+               <div class="panel-body">
+                    
+                        {% with r_posts=recently_posts %}
+                        {% if r_posts %}
+                        {% for post in r_posts %}
+                        <li class="under_line" style="list-style: none;">
+                        <a href="/{{ post.alias }}.html" title="详细阅读 {{ post.title }}">{{ post.title }}</a>
+                        <span class="badge"> {{ post.pub_time |date:"Y-m-d"}}</span>
+                        </li>
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                  
+               </div>
+        </div>
     {% else %}{% if widget.content == 'hot_post' %}
-    <h3 class="under_line">{{ widget.title }}</h3>
-    <div class="textwidget">
-        <ul>
+    <div class="panel panel-info ">
+               <div class="panel-heading">
+                 {{ widget.title }}
+               </div>
+               <div class="panel-body">
         {% with h_posts=hot_posts %}
         {% if h_posts %}
         {% for post in h_posts %}
-        <li>
+        <li class="under_line" style="list-style: none;">
         <a rel="bookmark" href="/{{ post.alias }}.html" title="详细阅读 {{ post.title }}">{{ post.title }}</a>
+        <span class="badge"> {{ post.view_times }}°C</span>
         </li>
         {% endfor %}
         {% endif %}
         {% endwith %}
-        </ul>
-    </div>
+          </div>
+        </div>
     {% else %}
-    <h3 class="under_line">{{ widget.title }}</h3>
-    <div class="textwidget">
+    <div class="panel panel-default ">
+               <div class="panel-heading">
+                 {{ widget.title }}
+               </div>
+               <div class="panel-body">
         {% autoescape off %}
-        {{ widget.content }}
+        {{ widget.content }}fff
         {% endautoescape %}
-    </div>
+     </div>
+        </div>
     {% endif %}{% endif %}
     {% endfor %}
 </div>

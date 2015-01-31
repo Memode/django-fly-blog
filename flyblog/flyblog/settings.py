@@ -19,7 +19,7 @@ ALLOWED_HOSTS = ['localhost', '.sinaapp.com']
 
 # 一些公共的参数
 
-PAGE_NUM = 1
+PAGE_NUM = 10
 RECENTLY_NUM = 15
 HOT_NUM = 15
 ONE_DAY = 24 * 60 * 60
@@ -63,7 +63,7 @@ WSGI_APPLICATION = 'flyblog.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 SAE = False
 if not SAE:
-    DOMAIN = 'localhost'
+    DOMAIN = 'http://localhost:8000'
     DATABASES = {
         # 'default2': {
         #    'ENGINE': 'django.db.backends.sqlite3',

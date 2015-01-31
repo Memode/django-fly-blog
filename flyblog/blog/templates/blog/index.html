@@ -8,15 +8,17 @@
     {% with post_list=posts.object_list %}
     {% if post_list %}
     {% for post in post_list %}
-        <div class="article">
-            <h2 class='under_line'>
-                <a href="{{ post.get_absolute_url }}" rel="bookmark" title="详细阅读 {{ post.title }}">
+    <div class="panel panel-default " style="font-size:20px;">
+               <div class="panel-heading">
+               <a href="{{ post.get_absolute_url }}" rel="bookmark" title="详细阅读 {{ post.title }}">
                 {% if post.is_top %}
                 [置顶]
                 {% endif %}
                 {% autoescape off %}{{ post.title }}{% endautoescape %}
                 </a>
-            </h2>
+               </div>
+               <div class="panel-body">
+        <div class="article">
             <div class="info">
                 作者：{{post.author}}
                 | 分类：<a href="/category/{{ post.category.alias }}" title="查看 post.category.name 中的全部文章" rel="category tag">{{ post.category.name }}</a>
@@ -43,7 +45,8 @@
                 </span>
                 <span class="pull-right"><a href="{{ post.get_absolute_url }}" title="{{ post.title }}" rel="bookmark">阅读全文</a></span>
             </div>
-
+            </div>
+        </div>
             <div class="clear"></div>
         </div>
         <div class="clear"></div>
@@ -51,8 +54,8 @@
     {% endif %}
     {% endwith %}
         <hr/>
-        <div class="pagination pagination-centered pagination-small">
-            <ul>
+        <div>
+            <ul class="pagination pagination-centered pagination-small">
                 {% if posts.number <= 1 %}
                     <li class="disabled"><a>上一页</a></li>
                 {% else %}
