@@ -3,7 +3,7 @@ body {
 }
 #content {
     background-color:#fff;
-    padding:0 50px;
+    padding:0 15px;
     border:1px solid #bbb;
     border-bottom-color:#aaa;
     box-shadow:0 1px 4px rgba(0, 0, 0, 0.25);
@@ -50,7 +50,7 @@ header h1 {
     font-size: 19px;
     height: 24px;
     padding-left: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 .article h2 a:link, .article h2 a:visited {
@@ -82,7 +82,7 @@ header h1 {
     margin:10px 0 0 0;
     font-size: 19px;
     height: 24px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 .detail .info {
@@ -100,7 +100,7 @@ header h1 {
     line-height: 26px;
 }
 .detail .box {
-    padding:10px 0;
+    padding:5px 0;
     border-bottom:1px #DDD solid;
 }
 
