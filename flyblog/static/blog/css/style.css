@@ -1,0 +1,141 @@
+body {
+    background-color:#e8e8e8;
+}
+#content {
+    background-color:#fff;
+    padding:0 50px;
+    border:1px solid #bbb;
+    border-bottom-color:#aaa;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.25);
+    margin-top:50px;
+}
+.line {
+    margin-left: 2px;
+    position: absolute;
+}
+
+.under_line {
+    border-bottom:1px solid #ccc;
+}
+
+.clear {
+    clear:both;
+}
+
+
+.hightline {
+    color:red;
+}
+
+h1 {
+    font-size:18px;
+}
+h1 a {
+    color:#222;
+    font:35px 微软雅黑,PMingLiU,Verdana,Arial,Helvetica,sans-serif;
+}
+
+header h1 {
+    margin-bottom:0;
+}
+
+#blogdesc {
+    font-size:15px;
+    color:#666;
+}
+
+
+.article h2, .sidebar h3 {
+    margin:5px 0;
+    font-size: 19px;
+    height: 24px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+.article h2 a:link, .article h2 a:visited {
+    color: #333;
+    text-decoration:none;
+}
+
+.article h2 a:hover {
+    color:#005580;
+}
+
+.article .entry_post {
+    padding:5px;
+}
+
+.article .entry_post p {
+    text-indent:2em;
+}
+
+.info {
+    font-size: 14px;
+    color:#757575;
+    padding: 5px;
+}
+
+
+/* detail css */
+.detail h2 {
+    margin:10px 0 0 0;
+    font-size: 19px;
+    height: 24px;
+    padding-bottom: 10px;
+}
+
+.detail .info {
+    color:#777;
+}
+
+.detail .content {
+    padding:20px 0;
+    font-size:17px;
+}
+
+.detail .content p {
+    padding: 5px 0px;
+    margin: 0 0 18px;
+    line-height: 26px;
+}
+.detail .box {
+    padding:10px 0;
+    border-bottom:1px #DDD solid;
+}
+
+.content img, .content a img {
+    margin: 0 auto;
+    display: block;
+}
+
+.content h1 {
+    font-size:120%;
+}
+.content h2 {
+    font-size:118%;
+}
+.content h3 {
+    font-size:116%;
+}
+.content h4 {
+    font-size:114%;
+}
+.content h5 {
+    font-size:110%;
+}
+
+/*widget 配置*/
+.sidebar .widget h3 {
+    font-size:17px;
+}
+
+.sidebar ul {
+    margin:0px;
+}
+
+.sidebar ul li {
+    list-style:none;
+    padding:2px;
+}
+
