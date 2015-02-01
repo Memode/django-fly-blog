@@ -1,8 +1,8 @@
-<div class="widget">
+<div class="widget" style="margin-left:-5px;">
     {% for widget in widgets %}
     {% if widget.content == 'recently_post'%}
          <div class="panel panel-warning ">
-               <div class="panel-heading">
+               <div class="panel-heading" style="padding:3px 0 3px 8px;">
                  {{ widget.title }}
                </div>
                <div class="panel-body">
@@ -10,7 +10,7 @@
                         {% with r_posts=recently_posts %}
                         {% if r_posts %}
                         {% for post in r_posts %}
-                        <li class="under_line" style="list-style: none;">
+                        <li class="under_line" style="list-style: none;padding:5px;">
                         <a href="/{{ post.alias }}.html" title="详细阅读 {{ post.title }}">{{ post.title }}</a>
                         <span class="badge"> {{ post.pub_time |date:"Y-m-d"}}</span>
                         </li>
@@ -22,14 +22,14 @@
         </div>
     {% else %}{% if widget.content == 'hot_post' %}
     <div class="panel panel-info ">
-               <div class="panel-heading">
+               <div class="panel-heading" style="padding:3px 0 3px 8px;">
                  {{ widget.title }}
                </div>
                <div class="panel-body">
         {% with h_posts=hot_posts %}
         {% if h_posts %}
         {% for post in h_posts %}
-        <li class="under_line" style="list-style: none;">
+        <li class="under_line" style="list-style: none;padding:5px;">
         <a rel="bookmark" href="/{{ post.alias }}.html" title="详细阅读 {{ post.title }}">{{ post.title }}</a>
         <span class="badge"> {{ post.view_times }}°C</span>
         </li>
@@ -40,7 +40,7 @@
         </div>
     {% else %}
     <div class="panel panel-default ">
-               <div class="panel-heading">
+               <div class="panel-heading" style="padding:3px 0 3px 8px;">
                  {{ widget.title }}
                </div>
                <div class="panel-body">

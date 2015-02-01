@@ -10,8 +10,8 @@
 
 {% block main %}
  {% if post %}
- <div class="panel panel-default " style="font-size:20px;">
-               <div class="panel-heading">
+ <div class="panel panel-default " style="font-size:18px;margin-right:-5px;">
+               <div class="panel-heading" style="padding:5px 0 5px 15px;">
                     {% autoescape off %}
                     <span>{{ post.title }}</span>
                     {% endautoescape %}
@@ -33,15 +33,15 @@
                             {% endif %}
                             </div>
                             <div class="content">
-                                {% autoescape on %}
-                                {{ post.content_html |my_markdown}}
+                                {% autoescape off %}
+                                {{ post.content_html }}
                                 {% endautoescape %}
                             </div>
                     </div>
 
                 </div>
 </div>
-<div class="panel panel-default" style="font-size:20px;padding:10px">
+<div class="panel panel-default" style="padding:10px">
 
                 <div class="box">
                     <div class="row">

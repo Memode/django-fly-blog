@@ -8,8 +8,8 @@
     {% with post_list=posts.object_list %}
     {% if post_list %}
     {% for post in post_list %}
-    <div class="panel panel-default " style="font-size:20px;">
-               <div class="panel-heading">
+    <div class="panel panel-default " style="font-size:18px;margin-right:-5px;">
+               <div class="panel-heading" style="padding:5px 0 5px 15px;">
                <a href="{{ post.get_absolute_url }}" rel="bookmark" title="详细阅读 {{ post.title }}">
                 {% if post.is_top %}
                 [置顶]
@@ -38,8 +38,8 @@
             <div class="entry_post">
                 <span>
                     <p>
-                    {% autoescape off %}
-                    {{ post.summary |my_markdown}}
+                    {% autoescape on %}
+                    {{ post.summary}}
                     {% endautoescape %}
                     </p>
                 </span>

@@ -3,7 +3,7 @@ body {
 }
 #content {
     background-color:#fff;
-    padding:0 15px;
+    padding:0 10px;
     border:1px solid #bbb;
     border-bottom-color:#aaa;
     box-shadow:0 1px 4px rgba(0, 0, 0, 0.25);
@@ -28,7 +28,7 @@ body {
 }
 
 h1 {
-    font-size:18px;
+    font-size:16px;
 }
 h1 a {
     color:#222;
@@ -47,7 +47,7 @@ header h1 {
 
 .article h2, .sidebar h3 {
     margin:5px 0;
-    font-size: 19px;
+    font-size: 17px;
     height: 24px;
     padding-left: 10px;
     padding-bottom: 5px;
@@ -64,6 +64,7 @@ header h1 {
 
 .article .entry_post {
     padding:5px;
+    font-size:16px;
 }
 
 .article .entry_post p {
@@ -71,7 +72,7 @@ header h1 {
 }
 
 .info {
-    font-size: 14px;
+    font-size: 13px;
     color:#757575;
     padding: 5px;
 }
@@ -80,7 +81,7 @@ header h1 {
 /* detail css */
 .detail h2 {
     margin:10px 0 0 0;
-    font-size: 19px;
+    font-size: 17px;
     height: 24px;
     padding-bottom: 5px;
 }
@@ -91,7 +92,7 @@ header h1 {
 
 .detail .content {
     padding:20px 0;
-    font-size:17px;
+    font-size:16px;
 }
 
 .detail .content p {
@@ -127,7 +128,7 @@ header h1 {
 
 /*widget 配置*/
 .sidebar .widget h3 {
-    font-size:17px;
+    font-size:15px;
 }
 
 .sidebar ul {
