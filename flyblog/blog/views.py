@@ -104,7 +104,9 @@ class PostDetailView(BaseMixin, DetailView):
         kwargs['related_posts'] = self.object.related_posts
         tags = []
         for post in self.queryset:
-            tags += post.tags.split(',')
+            for tag in post.tags.split(','):
+                if tag not in tags:
+                    tags.append(tag)
         kwargs['tags'] = tags
         return super(PostDetailView, self).add_context_data(**kwargs)
 

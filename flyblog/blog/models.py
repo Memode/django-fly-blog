@@ -81,7 +81,7 @@ class Post(models.Model):
 
     def next_post(self):
         # 下一篇
-        data=Post.objects.filter(id__gt=self.id, status=0)
+        data = Post.objects.filter(id__gt=self.id, status=0)
         if data:
             return data[0]
         else:
@@ -89,7 +89,7 @@ class Post(models.Model):
 
     def prev_post(self):
         # 前一篇
-        data=Post.objects.filter(id__lt=self.id, status=0)
+        data = Post.objects.filter(id__lt=self.id, status=0)
         if data:
             return data[0]
         else:

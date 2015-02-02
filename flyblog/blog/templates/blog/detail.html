@@ -53,15 +53,15 @@
                         </div>
                         <div class="col-md-6">
                             <b>所有标签</b>
-                            <ul style="width:350px;overflow:hidden;">
+                            <ul style="width:350px;overflow:hidden;font-size:16px;">
                                 {% for tag in tags %}
-                                <a href="/tag/{{ tag }}">{{ tag }}</a>
+                                <a href="/tag/{{ tag }}">{{ tag }} </a>
                                 {% endfor %}
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="box">
+                <div class="box" style="font-size: 18px;padding:8px;">
                     【上一篇】
                     {% if post.prev_post %}
                         <a href="{{ post.prev_post.get_absolute_url }}">{{ post.prev_post.title }}</a>
@@ -77,7 +77,12 @@
                     {% endif %}
                 </div>
             
-                <span id="comments" name="comments">没有评论哦</span>
+                <div id="comment">
+                    <!-- 多说评论框 start -->
+                    <div class="ds-thread" data-thread-key="{{post.alias}}" data-title="{{post.title}}" data-url="http://www.younfor.com/{{post.alias}}.html"></div>
+                    <!-- 多说评论框 end -->
+                
+                </div>
             </div>
 {% endif %}            
 {% endblock %}

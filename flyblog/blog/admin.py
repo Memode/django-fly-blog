@@ -12,14 +12,15 @@ from pagedown.widgets import AdminPagedownWidget
 
 
 class PostForm(forms.ModelForm):
-    content = forms.CharField(widget=AdminPagedownWidget())
-    summary = forms.CharField(
-        widget=forms.Textarea(attrs={'style': 'width:600px;'}))
-    
+    content = forms.CharField(label=u'内容',widget=AdminPagedownWidget())
+    summary = forms.CharField(label=u'摘要', required=False,
+                              widget=forms.Textarea(attrs={'style': 'width:600px;'}))
+
     class Meta:
         model = Post
         fields = ('title', 'alias', 'is_top', 'is_old', 'pub_time',  'tags', 'status',
-              'category', 'summary', 'content')
+                  'category', 'summary', 'content')
+
 
 class PostAdmin(admin.ModelAdmin):
     search_fields = ('title', 'alias')

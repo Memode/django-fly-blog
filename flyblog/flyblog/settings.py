@@ -20,8 +20,8 @@ ALLOWED_HOSTS = ['localhost', '.sinaapp.com']
 # 一些公共的参数
 
 PAGE_NUM = 10
-RECENTLY_NUM = 15
-HOT_NUM = 15
+RECENTLY_NUM = 6
+HOT_NUM = 6
 ONE_DAY = 24 * 60 * 60
 FIF_MIN = 15 * 60
 FIVE_MIN = 5 * 60

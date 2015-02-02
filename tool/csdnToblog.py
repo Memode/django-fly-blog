@@ -101,7 +101,28 @@ def sqlExeArticle(category,name=None,tags=None,content=None):
         conn.close()
     except MySQLdb.Error,e:
         print "Mysql Error %d: %s" % (e.args[0], e.args[1])
+
+def getFilterDouble():
+    try:
+        conn=MySQLdb.connect(host='localhost',user='root',passwd='199288',db='flyblog',port=3306,charset='utf8')
+        cur=conn.cursor()
+        cur.execute('select alias,id,title from blog_post')
+        result=cur.fetchall()
+        article=[]
+        for alias in result:
+            if alias[0] not in article:
+                article.append(alias[0])
+            else:
+                cur.execute('delete from blog_post where id=%s',[alias[1]])
+                print 'delete %s'%(alias[2])
+        conn.commit()
+        cur.close()     
+        conn.close()
+    except MySQLdb.Error,e:
+        print "Mysql Error %d: %s" % (e.args[0], e.args[1])
+
 if __name__ == "__main__":
+    '''
     url,name= getCategory()
     cat=0
     urllen=len(url)
@@ -122,5 +143,6 @@ if __name__ == "__main__":
                 print '文章写入成功',title
             i+=1
         cat+=1
-        flag=raw_input('是否继续? 1 or 0')
-
+        flag=raw_input('是否继续? 1 or 0 : ')
+    '''
+    getFilterDouble()
