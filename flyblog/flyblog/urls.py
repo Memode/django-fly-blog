@@ -14,4 +14,13 @@ urlpatterns = patterns('',
                            views.TagsListView.as_view()),
                        url(r'^(?P<slug>[\w|\-|\d]+)/$',
                            views.PageDetailView.as_view()),
+                       #url(r'^tinymce/', include('tinymce.urls')),
+                       url(r'^ckeditor/', include('ckeditor.urls')),
                        )
+from django.conf import settings
+
+if settings.DEBUG:
+    urlpatterns += patterns('',
+                            url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
+                                {'document_root': settings.MEDIA_ROOT}),
+                            )

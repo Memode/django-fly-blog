@@ -6,15 +6,30 @@ from models import Category
 from models import Page
 from models import Widget
 import hashlib
+from tinymce.widgets import TinyMCE
 from django import forms
 from pagedown.widgets import AdminPagedownWidget
+from ckeditor.widgets import CKEditorWidget
 # 文章管理
 
 
 class PostForm(forms.ModelForm):
-    content = forms.CharField(label=u'内容',widget=AdminPagedownWidget())
+    #content = forms.CharField(label=u'内容',widget=AdminPagedownWidget())
+
+    '''tinymce
+    content = forms.CharField(
+        label=u'内容',
+        widget=TinyMCE(
+            attrs={'style': 'width:600px;height:500px;'},
+        )
+    )
+    '''
+    content = forms.CharField(
+        label=u'内容',
+        widget=CKEditorWidget()
+    )
     summary = forms.CharField(label=u'摘要', required=False,
-                              widget=forms.Textarea(attrs={'style': 'width:600px;'}))
+                              widget=forms.Textarea(attrs={'style': 'width:500px;height:100px;'}))
 
     class Meta:
         model = Post

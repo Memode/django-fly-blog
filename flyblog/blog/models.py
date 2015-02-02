@@ -3,6 +3,7 @@ from datetime import datetime
 from django.db import models
 from django.contrib.auth.models import User
 from flyblog import settings
+
 STATUS = {
     0: u'正常',
     1: u'草稿',
@@ -54,7 +55,6 @@ class Post(models.Model):
 
     summary = models.TextField(verbose_name=u'摘要', null=True, blank=True)
     content = models.TextField(verbose_name=u'文章正文rst格式')
-
     content_html = models.TextField(verbose_name=u'文章正文html')
     view_times = models.IntegerField(default=1)
 
