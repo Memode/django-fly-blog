@@ -81,11 +81,11 @@
             <div class="row">
                 
 
-                <div class="sidebar col-md-3">
-                    {% include "blog/sidebar.html" %}
-                </div>
-                <div class="col-md-9">
+                 <div class="col-md-9" style="padding:5px 7px 8px 10px;">
                     {% block main %}{% endblock %}
+                </div>
+                <div class="sidebar col-md-3" style="padding:5px 10px 8px 7px;">
+                    {% include "blog/sidebar.html" %}
                 </div>
             </div>
             <div class="">
