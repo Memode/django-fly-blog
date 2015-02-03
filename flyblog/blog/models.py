@@ -136,7 +136,7 @@ class Page(models.Model):
     content = models.TextField(verbose_name=u'page正文')
 
     content_html = models.TextField(verbose_name=u'page正文html')
-    #is_html = models.BooleanField(default=False, verbose_name=u'html代码')
+    is_html = models.BooleanField(default=False, verbose_name=u'html代码')
 
     link = models.CharField(
         max_length=200, blank=True, null=True, verbose_name=u'链接', help_text=u'该链接存在时其它内容无效')
