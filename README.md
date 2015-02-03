@@ -31,9 +31,20 @@
       sudo pip install django-suit
       sudo pip install DjangoUeditor
 
-2.　如果是sae已经配置好了，只需要在setting里面
-    
-      sae=True
-    
+2. 如果是sae已经配置好了，只需要在setting里面
+      
+　　　　　　　　sae=True
+
+　　发布前记得
+
+　　　　　　　　python manage.py collectstatic
+　　　　　　　　
 　　其他参数自行配置
 
+3. 侧边栏小工具使用方法:新建侧边栏的时候，内容里面填右边推荐的
+    
+        recented_post,hot_post特定字段即可
+
+4. 联系ＱＱ361106306
+
+5. 版权声明，本项目开源，也借鉴了大多类似的博客源码.
