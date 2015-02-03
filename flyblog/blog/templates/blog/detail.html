@@ -1,7 +1,5 @@
 {% extends "blog/base.html" %}
-{% load markdown_deux_tags %}
-{% load my_markup %}
-{% block title %}{{ post.title }} | {% endblock %}
+{% block title %}{{ post.title }}{% endblock %}
 {% block desc %}{{ post.summary|truncatewords:140 }}{%  endblock %}
 {% block keywords %}{{ post.tags }}{% endblock %}
 

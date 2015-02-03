@@ -14,8 +14,7 @@ urlpatterns = patterns('',
                            views.TagsListView.as_view()),
                        url(r'^(?P<slug>[\w|\-|\d]+)/$',
                            views.PageDetailView.as_view()),
-                       #url(r'^tinymce/', include('tinymce.urls')),
-                       url(r'^ckeditor/', include('ckeditor.urls')),
+                       url(r'^ueditor/',include('DjangoUeditor.urls' )),
                        )
 from django.conf import settings
 

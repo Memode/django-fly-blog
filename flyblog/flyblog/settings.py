@@ -37,10 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'pagedown',
-    'markdown_deux',
-    'tinymce',
-    'ckeditor',
+    'DjangoUeditor',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -112,7 +109,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-
+#STATIC_URL='http://7vih3p.com1.z0.glb.clouddn.com/static/'
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -134,52 +131,6 @@ SUIT_CONFIG = {
     # header
     'ADMIN_NAME': 'flyblog',
 }
-
-# tinymce config
-'''
-TINYMCE_DEFAULT_CONFIG = {
-    'plugins': "bbcode,emotions,spellchecker,paste,searchreplace",
-    'theme': "advanced",
-    'theme_advanced_buttons3_add': "emotions,code",
-    'cleanup_on_startup': True,
-    'custom_undo_redo_levels': 10,
-    'theme_advanced_styles': "Code=codeStyle;Quote=quoteStyle",
-    'content_css': "bbcode.css",
-    'entity_encoding': "raw",
-    'add_unload_trigger': False,
-    'remove_linebreaks': False
-}
-'''
-# ckeditor
-CKEDITOR_UPLOAD_PATH = "uploads/"
 MEDIA_URL = '/media/'
+#MEDIA_URL='http://7vih3p.com1.z0.glb.clouddn.com/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-'''
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': 'Full',
-        'height': 500,
-        'width': 600,
-    },
-}
-'''
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': (
-            ['div', 'Source', '-', 'Preview'],
-            ['Undo', 'Redo', 'RemoveFormat'],
-            ['Bold', 'Italic', 'Underline', 'Strike',
-                '-', 'Subscript', 'Superscript'],
-            ['NumberedList', 'BulletedList', '-',
-                'Outdent', 'Indent', 'Blockquote'],
-            ['Link', 'Unlink', 'Anchor', 'Image', 'HorizontalRule',
-                'Smiley', 'Styles', 'Format', 'Font', 'FontSize'],
-            ['TextColor', 'BGColor'],
-            ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock',
-             'pbckcode', 'About'],
-        ),
-        'height': 500,
-        'width': 600,
-        'allowedContent': True
-    }
-}

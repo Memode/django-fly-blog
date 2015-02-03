@@ -6,28 +6,17 @@ from models import Category
 from models import Page
 from models import Widget
 import hashlib
-from tinymce.widgets import TinyMCE
 from django import forms
-from pagedown.widgets import AdminPagedownWidget
-from ckeditor.widgets import CKEditorWidget
+from DjangoUeditor.widgets import UEditorWidget
 # 文章管理
 
 
 class PostForm(forms.ModelForm):
-    #content = forms.CharField(label=u'内容',widget=AdminPagedownWidget())
+    content = forms.CharField(
+        label="内容", widget=UEditorWidget(attrs={'toolbars': 'besttome',
+                                                'width': '700', 'height': '400',
+                                                }))
 
-    '''tinymce
-    content = forms.CharField(
-        label=u'内容',
-        widget=TinyMCE(
-            attrs={'style': 'width:600px;height:500px;'},
-        )
-    )
-    '''
-    content = forms.CharField(
-        label=u'内容',
-        widget=CKEditorWidget()
-    )
     summary = forms.CharField(label=u'摘要', required=False,
                               widget=forms.Textarea(attrs={'style': 'width:500px;height:100px;'}))
 
@@ -68,7 +57,7 @@ class PostAdmin(admin.ModelAdmin):
         if not obj.alias:
             obj.alias = hashlib.md5(obj.title.encode('utf-8')).hexdigest()
         if not obj.summary:
-            obj.summary = obj.content[0:min(len(obj.content), 200)]
+            obj.summary = obj.content[0:min(len(obj.content), 400)]
 
         obj.content_html = obj.content
         obj.save()
@@ -79,10 +68,21 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'rank', 'is_nav', 'status', 'create_time')
 
 
+class PageForm(forms.ModelForm):
+    content = forms.CharField(
+        label="内容", widget=UEditorWidget(attrs={'toolbars': 'besttome',
+                                                'width': '700', 'height': '400',
+                                                }))
+
+    class Meta:
+        model = Page
+
+
 class PageAdmin(admin.ModelAdmin):
     search_fields = ('name', 'alias')
-    fields = ('title', 'alias', 'link', 'content', 'is_html', 'status', 'rank')
-    list_display = ('title', 'link', 'rank', 'status', 'is_html')
+    fields = ('title', 'alias', 'link', 'content', 'status', 'rank')
+    list_display = ('title', 'link', 'rank', 'status')
+    form = PageForm
 
     def save_model(self, request, obj, form, change):
         obj.author = request.user

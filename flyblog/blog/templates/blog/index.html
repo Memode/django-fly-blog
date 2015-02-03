@@ -1,6 +1,5 @@
 {% extends "blog/base.html" %}
 {% load substring %}
-{% load my_markup %}
 {% if title %}
     {% block title %}{{ title }}{% endblock %}
 {% endif %}
@@ -37,11 +36,11 @@
 
             <div class="entry_post">
                 <span>
-                    <p>
-                    {% autoescape on %}
-                    {{ post.summary}}
+                 
+                    {% autoescape on %} 
+                    {{ post.summary|striptags}}
                     {% endautoescape %}
-                    </p>
+                    
                 </span>
                 <span class="pull-right"><a href="{{ post.get_absolute_url }}" title="{{ post.title }}" rel="bookmark">阅读全文</a></span>
             </div>

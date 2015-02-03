@@ -9,12 +9,17 @@
         <meta name="author" content="{{author}}">
         <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
         <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/static/blog/css/style.css" rel="stylesheet">
+        <link href="{{STATIC_URL}}blog/css/style.css" rel="stylesheet">
         <script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
         <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         {%  block extend_style %}{% endblock %}
+        <link href="{{STATIC_URL}}ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet" type="text/css" media="screen" />
+        <script src="{{STATIC_URL}}ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
+        <script>
+           SyntaxHighlighter.all()
+        </script>
     </head>
-    <body onload="prettyPrint()">
+    <body>
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="row">
