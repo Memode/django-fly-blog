@@ -9,12 +9,12 @@
         <meta name="author" content="{{author}}">
         <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
         <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-        <link href="{{STATIC_URL}}blog/css/style.css" rel="stylesheet">
         <script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
         <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <link href="{{STATIC_URL}}blog/css/style.css" rel="stylesheet">
         {%  block extend_style %}{% endblock %}
-        <link href="{{STATIC_URL}}ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet" type="text/css" media="screen" />
-        <script src="{{STATIC_URL}}ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
+        <link href="http://7vih3p.com1.z0.glb.clouddn.com/static/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet" type="text/css" media="screen" />
+        <script src="http://7vih3p.com1.z0.glb.clouddn.com/static/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
         <script>
            SyntaxHighlighter.all()
         </script>
@@ -44,58 +44,74 @@
                             <a href="/{{ page.alias }}/">{{ page.title }}</a>
                             {% endif %}
                         </li>
+                  
                      {% endfor %}
                   </ul>
                   <form class="navbar-form navbar-right" role="search" action="/">
-                        <div class="form-group">
-                             <input type="text" style="width:70%;" name="s" id="s" class="form-control" placeholder="Search">
+                      <div class="form-group">
+                             <input type="text"  name="s" id="s" class="form-control" placeholder="Search">
                              <button type="submit" class="btn btn-info">go</button>
                         </div>   
                 </form>    
                </div>
             </div>
         </nav>
-        <div class="container" id="content">
-            <div class="row">
-                <header>
-                   <div class="col-md-1">
-                    <img  style="margin:10px 10px;" class="img-circle" width="80px" height="80px" src="http://tp3.sinaimg.cn/1777889274/180/5715158027/1"/>
-                   </div>
-                   <div class="col-md-11">
-                        <h1><a href="/">{{sitename}}</a></h1>
-                        <div id="blogdesc">{{blogdesc}}</div>
-                    </div>
-                </header>
-            </div>
-            <div class="row under_line" style="margin-bottom:10px;">
+            <div class="container" id="content">
+                <header style="margin:0 0 10px -20px;">
+                <div class="row">
+                    
+                       <div class="col-md-2">
+                        <img  style="margin:20px 0px 0 30px;" class="img-circle" width="80px" height="80px" src="http://tp3.sinaimg.cn/1777889274/180/5715158027/1"/>
+                       </div>
+                       <div class="col-md-10">
+                            <h1><a href="/">{{sitename}}</a></h1>
+                            <div id="blogdesc">{{blogdesc}}</div>
+                        </div>
+                    
+                </div>
+             </header>
+           　<div class="row">
                 <div class="col-md-12">
-                    <ul class="nav nav-pills" style="margin-top:10px;">
-                        {% for category in categories %}
-                        {% if category.is_nav %}
-                        <li><a href="/category/{{ category.alias }}/">{{ category.name }}</a></li>
+                    <ul class="nav nav-pills catelist">
+                        {% for cat in categories %}
+                        {% if cat.is_nav %}
+                        {% ifequal catalias cat.alias%}
+                        <li><a style="background-color: #555;color:#fff;" href="/category/{{ cat.alias }}/">{{ cat.name }}</a></li>
+                        {% else %}
+                        <li><a href="/category/{{ cat.alias }}/">{{ cat.name }}</a></li>
+                        {% endifequal %}
                         {% endif %}
                         {% endfor %}
                     </ul>
                 </div>
             </div>
-            <div class="row">
-                
 
+            <div class="row">
                  <div class="col-md-9" style="padding:5px 7px 8px 10px;">
                     {% block main %}{% endblock %}
                 </div>
                 <div class="sidebar col-md-3" style="padding:5px 10px 8px 7px;">
                     {% include "blog/sidebar.html" %}
                 </div>
+               
+
+                
             </div>
-            <div class="">
-                <ul class="nav nav-pills">
-                    {% for category in categories %}
-                    {% if not category.is_nav %}
-                    <li><a href="/category/{{ category.alias }}/">{{ category.name }}</a></li>
-                    {% endif %}
-                    {% endfor %}
+                <div class="panel panel-default " style="margin-left:-5px;">
+               <div class="panel-heading" style="padding:3px 0 3px 8px;">
+                 更多分类
+               </div>
+               <div class="panel-body">
+                    
+                        <ul class="nav nav-pills">
+                            {% for category in categories %}
+                            {% if not category.is_nav %}
+                            <li><a href="/category/{{ category.alias }}/">{{ category.name }}</a></li>
+                            {% endif %}
+                            {% endfor %}
                 </ul>
+                  
+               </div>
             </div>
         </div>
         {% include "blog/footer.html" %}

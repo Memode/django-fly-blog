@@ -3,11 +3,12 @@
 {% block desc %}{{ page.content|truncatewords:140 }}{%  endblock %}
 {% block keywords %}{{keywords}}{% endblock %}
 {% block main %}
- <div class="panel panel-default " style="font-size:20px;">
-               <div class="panel-heading">
-                        <span>{{ page.title }}</span>
+ <div class="panel panel-default ">
+               <div class="panel-heading" style="padding:3px 0 3px 8px;">
+                        页面
                 </div>
              <div class="panel-body">
+                 <span style="font-size:20px;">{{ page.title }}</span>
                 <div class="info">
                     作者：{{ page.author }} 
                     | 发布：{{ page.create_time|date:"Y-m-d P" }}

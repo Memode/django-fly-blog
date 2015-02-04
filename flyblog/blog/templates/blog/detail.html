@@ -8,14 +8,14 @@
 
 {% block main %}
  {% if post %}
- <div class="panel panel-default " style="font-size:18px;">
-               <div class="panel-heading" style="padding:5px 0 5px 15px;">
-                    {% autoescape off %}
-                    <span>{{ post.title }}</span>
-                    {% endautoescape %}
+ <div class="panel panel-default " >
+               <div class="panel-heading" style="padding:3px 0 3px 8px;">
+                   正文
                 </div>
                 <div class="panel-body">
-                       
+                    {% autoescape off %}
+                    <span style="font-size:20px;">{{ post.title }}</span>
+                    {% endautoescape %}
                     <div class="article">
                             <div class="info">
                             作者：{{ post.author }}
@@ -51,7 +51,7 @@
                         </div>
                         <div class="col-md-6">
                             <b>所有标签</b>
-                            <ul style="width:350px;overflow:hidden;font-size:16px;">
+                            <ul style="width:95%;overflow:hidden;font-size:16px;">
                                 {% for tag in tags %}
                                 <a href="/tag/{{ tag }}">{{ tag }} </a>
                                 {% endfor %}

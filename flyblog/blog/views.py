@@ -147,6 +147,7 @@ class CategoryListView(IndexView):
     def get_context_data(self, **kwargs):
         if hasattr(self, 'category'):
             kwargs['title'] = self.category.name + ' | '
+            kwargs['catalias']=self.category.alias
         return super(CategoryListView, self).get_context_data(**kwargs)
 
 

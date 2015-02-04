@@ -8,13 +8,13 @@ urlpatterns = patterns('',
                        url(r'^admin/', include(admin.site.urls)),
                        url(r'^(?P<slug>[\w|\-|\d|\W]+?).html$',
                            views.PostDetailView.as_view(), name='detail'),
-                       url(r'^category/(?P<alias>\w+)/',
+                       url(r'^category/(?P<alias>[\w|\+]+)/',
                            views.CategoryListView.as_view()),
-                       url(r'^tag/(?P<tag>[\w|\.|\-]+)/',
+                       url(r'^tag/(?P<tag>[\w|\.|\-|\+]+)/',
                            views.TagsListView.as_view()),
                        url(r'^(?P<slug>[\w|\-|\d]+)/$',
                            views.PageDetailView.as_view()),
-                       url(r'^ueditor/',include('DjangoUeditor.urls' )),
+                       url(r'^ueditor/', include('DjangoUeditor.urls')),
                        )
 from django.conf import settings
 
