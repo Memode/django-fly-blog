@@ -5,7 +5,35 @@ from django.core.paginator import Paginator
 from flyblog import settings
 from django.db.models import Q, F
 from django.shortcuts import render
+from django.contrib.syndication.views import Feed
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+# Feed
 
+
+class MyFeed(Feed):
+    title = "Younfor's BLOG"
+    link = 'http://www.younfor.com'
+    description = "python,c,c++,java,linux,生活感悟，工作笔记，心情驿站"
+    item_author_name = 'younfor'
+    item_author_email = 'younfor@yeah.net'
+    item_author_link = 'http://www.younfor.com'
+
+    def items(self):
+        return Post.objects.order_by("-create_time")[0:30]
+
+    def item_title(self, item):
+        return item.title
+
+    def item_pubdate(self, item):
+        return item.create_time
+
+    def item_link(self, item):
+        return "http://www.younfor.com/%s.html" % item.alias
+
+    def item_description(self, item):
+        return item.summary
 # 公共的context内容
 
 
@@ -147,7 +175,7 @@ class CategoryListView(IndexView):
     def get_context_data(self, **kwargs):
         if hasattr(self, 'category'):
             kwargs['title'] = self.category.name + ' | '
-            kwargs['catalias']=self.category.alias
+            kwargs['catalias'] = self.category.alias
         return super(CategoryListView, self).get_context_data(**kwargs)
 
 

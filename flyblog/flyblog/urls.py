@@ -12,9 +12,12 @@ urlpatterns = patterns('',
                            views.CategoryListView.as_view()),
                        url(r'^tag/(?P<tag>[\w|\.|\-|\+]+)/',
                            views.TagsListView.as_view()),
+                       url(r'^ueditor/', include('DjangoUeditor.urls')),
+                       url(r"^feeds/$", views.MyFeed()),
                        url(r'^(?P<slug>[\w|\-|\d]+)/$',
                            views.PageDetailView.as_view()),
-                       url(r'^ueditor/', include('DjangoUeditor.urls')),
+                       
+
                        )
 from django.conf import settings
 
